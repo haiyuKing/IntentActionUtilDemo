@@ -30,7 +30,7 @@ public class IntentActionUtil {
             String endName = filePath.substring(filePath.lastIndexOf(".") + 1, filePath.length()).toLowerCase();//后缀名
 		/* 依扩展名的类型决定MimeType */
             if (endName.equals("m4a") || endName.equals("mp3") || endName.equals("mid") ||
-                    endName.equals("xmf") || endName.equals("ogg") || endName.equals("wav")) {
+                    endName.equals("xmf") || endName.equals("ogg") || endName.equals("wav") || endName.equals("amr")) {
                 return getAudioFileIntent(filePath);//播放音频
             } else if (endName.equals("3gp") || endName.equals("mp4")) {
                 return getVideoFileIntent(filePath);//播放视频
@@ -126,7 +126,7 @@ public class IntentActionUtil {
     }
     
     /**
-     * Android获取一个用于打开VIDEO（音频）文件的intent
+     * Android获取一个用于打开VIDEO（视频）文件的intent
      */
     private static Intent getVideoFileIntent(String filePath) {
         Intent intent = new Intent("android.intent.action.VIEW");
@@ -139,7 +139,7 @@ public class IntentActionUtil {
     }
     
     /**
-     * Android获取一个用于打开AUDIO（视频）文件的intent
+     * Android获取一个用于打开AUDIO（音频）文件的intent
      */
     private static Intent getAudioFileIntent(String param) {
         Intent intent = new Intent("android.intent.action.VIEW");
